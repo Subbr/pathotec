@@ -6,9 +6,6 @@ import {
   FlaskConical,
   ScanSearch,
   Stethoscope,
-  ShieldCheck,
-  Clock,
-  Award,
   ArrowUpRight,
   Mail,
   MapPin,
@@ -16,9 +13,12 @@ import {
 } from "lucide-react";
 import { Logo } from "@/components/Logo";
 import heroTissue from "@/assets/hero-tissue.jpg";
-import labInterior from "@/assets/lab-interior.jpg";
 
 export const Route = createFileRoute("/")({ component: Index });
+
+const WHATSAPP_URL =
+  "https://wa.me/5561996264723?text=" +
+  encodeURIComponent("Olá! Gostaria de solicitar uma coleta / enviar uma amostra à Pathotec.");
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -36,18 +36,19 @@ function Nav() {
       initial={{ opacity: 0, y: -12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed top-0 z-50 w-full"
+      className="fixed top-0 z-50 w-full px-4"
     >
       <div className="mx-auto mt-4 flex max-w-7xl items-center justify-between rounded-full border border-border/60 bg-background/70 px-5 py-3 backdrop-blur-xl shadow-soft">
         <Logo />
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
           <a href="#servicos" className="transition hover:text-foreground">Serviços</a>
           <a href="#metodo" className="transition hover:text-foreground">Método</a>
-          <a href="#laboratorio" className="transition hover:text-foreground">Laboratório</a>
           <a href="#contato" className="transition hover:text-foreground">Contato</a>
         </nav>
         <a
-          href="#contato"
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className="group inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition hover:bg-royal-deep"
         >
           Enviar amostra
@@ -100,14 +101,16 @@ function Hero() {
             variants={fadeUp}
             className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground"
           >
-            A ADVET é um laboratório brasileiro especializado em anatomia patológica
+            A Pathotec é um laboratório brasileiro especializado em anatomia patológica
             veterinária. Unimos histopatologia, citologia e imuno-histoquímica em
             laudos claros, rápidos e confiáveis para a clínica do seu paciente.
           </motion.p>
 
           <motion.div variants={fadeUp} className="mt-10 flex flex-wrap items-center gap-4">
             <a
-              href="#contato"
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground shadow-lift transition hover:bg-royal-deep"
             >
               Solicitar coleta
@@ -121,11 +124,10 @@ function Hero() {
             </a>
           </motion.div>
 
-          <motion.div variants={fadeUp} className="mt-14 grid max-w-lg grid-cols-3 gap-8">
+          <motion.div variants={fadeUp} className="mt-14 grid max-w-lg grid-cols-2 gap-8">
             {[
-              { v: "48h", l: "Laudo médio" },
-              { v: "12k+", l: "Casos / ano" },
-              { v: "98%", l: "Satisfação clínica" },
+              { v: "7 dias", l: "Laudo médio (úteis)" },
+              { v: "+600", l: "Laudos liberados" },
             ].map((s) => (
               <div key={s.l}>
                 <div className="font-display text-3xl text-royal-deep">{s.v}</div>
@@ -197,7 +199,20 @@ const services = [
 
 function Services() {
   return (
-    <section id="servicos" className="relative py-28 md:py-36">
+    <section id="servicos" className="relative overflow-hidden py-28 md:py-36">
+      {/* ambient orbs */}
+      <motion.div
+        aria-hidden="true"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.4 }}
+        className="pointer-events-none absolute inset-0 -z-10"
+      >
+        <div className="absolute -left-32 top-20 h-96 w-96 rounded-full bg-periwinkle/30 blur-3xl" />
+        <div className="absolute -right-32 bottom-10 h-[28rem] w-[28rem] rounded-full bg-royal/10 blur-3xl" />
+      </motion.div>
+
       <div className="mx-auto max-w-7xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -224,22 +239,41 @@ function Services() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-80px" }}
-          className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-4"
+          className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
         >
-          {services.map((s) => (
+          {services.map((s, i) => (
             <motion.article
               key={s.title}
               variants={fadeUp}
-              whileHover={{ y: -4 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-              className="group relative overflow-hidden rounded-2xl border border-border bg-card p-7 shadow-soft transition hover:shadow-lift"
+              whileHover={{ y: -8, rotate: -0.3 }}
+              transition={{ type: "spring", stiffness: 220, damping: 20 }}
+              className="group relative overflow-hidden rounded-3xl border border-border bg-card/80 p-7 shadow-soft backdrop-blur-xl transition-shadow hover:shadow-lift"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-secondary text-royal transition group-hover:bg-primary group-hover:text-primary-foreground">
-                <s.icon className="h-5 w-5" strokeWidth={1.5} />
+              {/* gradient sheen on hover */}
+              <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-periwinkle/0 via-transparent to-royal/0 opacity-0 transition-opacity duration-500 group-hover:from-periwinkle/25 group-hover:to-royal/10 group-hover:opacity-100" />
+              {/* corner index */}
+              <div className="absolute right-5 top-5 font-display text-xs tabular-nums text-slate-blue/70">
+                0{i + 1}
               </div>
-              <h3 className="mt-6 text-xl text-royal-deep">{s.title}</h3>
+
+              <motion.div
+                whileHover={{ rotate: 6, scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 260, damping: 18 }}
+                className="flex h-14 w-14 items-center justify-center rounded-2xl bg-secondary text-royal shadow-soft transition-colors group-hover:bg-primary group-hover:text-primary-foreground"
+              >
+                <s.icon className="h-6 w-6" strokeWidth={1.5} />
+              </motion.div>
+
+              <h3 className="mt-7 font-display text-2xl text-royal-deep">{s.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
-              <ArrowUpRight className="absolute right-6 top-7 h-4 w-4 text-slate-blue opacity-0 transition group-hover:opacity-100" />
+
+              <div className="mt-6 flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-royal opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 -translate-x-1">
+                Saiba mais
+                <ArrowUpRight className="h-3.5 w-3.5" />
+              </div>
+
+              {/* animated bottom underline */}
+              <div className="absolute inset-x-7 bottom-0 h-px origin-left scale-x-0 bg-gradient-to-r from-royal via-periwinkle to-transparent transition-transform duration-500 group-hover:scale-x-100" />
             </motion.article>
           ))}
         </motion.div>
@@ -253,7 +287,7 @@ function Method() {
     { n: "01", t: "Coleta", d: "Orientação completa e logística de envio para todo o Brasil." },
     { n: "02", t: "Processamento", d: "Inclusão, microtomia e coloração em ambiente controlado." },
     { n: "03", t: "Análise", d: "Avaliação por patologistas veterinários especialistas." },
-    { n: "04", t: "Laudo", d: "Relatório claro entregue em até 48h, com suporte clínico." },
+    { n: "04", t: "Laudo", d: "Relatório claro entregue em até 7 dias úteis, com suporte clínico." },
   ];
   return (
     <section id="metodo" className="relative overflow-hidden bg-gradient-deep py-28 text-background md:py-36">
@@ -303,94 +337,9 @@ function Method() {
   );
 }
 
-function Lab() {
-  const features = [
-    { icon: ShieldCheck, t: "Rastreabilidade total", d: "Cada amostra com código único e histórico auditável." },
-    { icon: Clock, t: "Prazo garantido", d: "Laudos histopatológicos em até 48h úteis." },
-    { icon: Award, t: "Equipe titulada", d: "Patologistas com mestrado e doutorado em veterinária." },
-  ];
-  return (
-    <section id="laboratorio" className="py-28 md:py-36">
-      <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-2 lg:items-center">
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="relative"
-        >
-          <div className="overflow-hidden rounded-3xl border border-border shadow-lift">
-            <img
-              src={labInterior}
-              alt="Interior do laboratório ADVET"
-              width={1200}
-              height={900}
-              loading="lazy"
-              className="aspect-[5/6] w-full object-cover"
-            />
-          </div>
-          <motion.div
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -bottom-6 -right-6 hidden w-64 rounded-2xl border border-border bg-card p-5 shadow-lift md:block"
-          >
-            <div className="font-display text-3xl text-royal-deep">ISO 9001</div>
-            <div className="mt-2 text-xs leading-relaxed text-muted-foreground">
-              Processos certificados garantindo qualidade e reprodutibilidade.
-            </div>
-          </motion.div>
-        </motion.div>
-
-        <div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="text-xs uppercase tracking-[0.2em] text-slate-blue">— Laboratório</div>
-            <h2 className="mt-4 font-display text-4xl text-royal-deep md:text-5xl">
-              Um ambiente desenhado<br />
-              para a <em className="italic text-royal">verdade microscópica.</em>
-            </h2>
-            <p className="mt-6 max-w-lg text-muted-foreground md:text-lg">
-              Instalações com fluxo unidirecional, equipamentos de última geração e
-              uma cultura científica obstinada pelo detalhe.
-            </p>
-          </motion.div>
-
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-80px" }}
-            className="mt-12 space-y-2"
-          >
-            {features.map((f) => (
-              <motion.div
-                key={f.t}
-                variants={fadeUp}
-                className="flex gap-5 rounded-2xl border border-transparent p-5 transition hover:border-border hover:bg-card"
-              >
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-secondary text-royal">
-                  <f.icon className="h-5 w-5" strokeWidth={1.5} />
-                </div>
-                <div>
-                  <div className="font-medium text-royal-deep">{f.t}</div>
-                  <div className="mt-1 text-sm text-muted-foreground">{f.d}</div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function CTA() {
   return (
-    <section id="contato" className="px-6 pb-28">
+    <section id="contato" className="px-6 pb-28 pt-28 md:pt-36">
       <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl bg-gradient-deep p-10 text-background shadow-lift md:p-16">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -410,19 +359,21 @@ function CTA() {
               veterinários e universidades em todo o Brasil.
             </p>
             <a
-              href="mailto:contato@advet.com.br"
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group mt-8 inline-flex items-center gap-2 rounded-full bg-background px-6 py-3.5 text-sm font-medium text-royal-deep transition hover:bg-periwinkle"
             >
-              contato@advet.com.br
+              Falar no WhatsApp
               <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
           </div>
 
           <div className="space-y-4">
             {[
-              { icon: Phone, l: "Telefone", v: "+55 (11) 4000-2024" },
-              { icon: Mail, l: "Coleta de amostras", v: "coleta@advet.com.br" },
-              { icon: MapPin, l: "Sede", v: "São Paulo · SP — Brasil" },
+              { icon: Phone, l: "WhatsApp", v: "(61) 99626-4723" },
+              { icon: Mail, l: "E-mail", v: "contato@pathotec.com.br" },
+              { icon: MapPin, l: "Sede", v: "Brasília · DF — Brasil" },
             ].map((c) => (
               <div
                 key={c.l}
@@ -450,11 +401,7 @@ function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-6 py-12 md:flex-row md:items-center">
         <Logo />
         <div className="text-xs text-muted-foreground">
-          © {new Date().getFullYear()} ADVET — Anatomia Patológica Veterinária. CRMV-SP 00000.
-        </div>
-        <div className="flex gap-6 text-xs text-muted-foreground">
-          <a href="#" className="transition hover:text-foreground">Privacidade</a>
-          <a href="#" className="transition hover:text-foreground">Termos</a>
+          © {new Date().getFullYear()} Pathotec — Anatomia Patológica Veterinária.
         </div>
       </div>
     </footer>
@@ -468,7 +415,6 @@ function Index() {
       <Hero />
       <Services />
       <Method />
-      <Lab />
       <CTA />
       <Footer />
     </main>
