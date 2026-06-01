@@ -72,13 +72,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "ADVET — Anatomia Patológica Veterinária" },
+      { title: "Pathotec — Anatomia Patológica Veterinária" },
       {
         name: "description",
         content:
           "Laboratório brasileiro de anatomia patológica veterinária. Diagnósticos histopatológicos e citológicos de referência.",
       },
-      { property: "og:title", content: "ADVET — Anatomia Patológica Veterinária" },
+      { property: "og:title", content: "Pathotec — Anatomia Patológica Veterinária" },
       {
         property: "og:description",
         content: "Diagnósticos histopatológicos e citológicos de referência para a medicina veterinária.",
