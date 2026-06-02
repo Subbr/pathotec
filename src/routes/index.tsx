@@ -16,9 +16,8 @@ import heroTissue from "@/assets/hero-tissue.jpg";
 
 export const Route = createFileRoute("/")({ component: Index });
 
-const WHATSAPP_URL =
-  "https://wa.me/5561996264723?text=" +
-  encodeURIComponent("Olá! Gostaria de solicitar uma coleta / enviar uma amostra à Pathotec.");
+const WHATSAPP_URL = "https://wa.me/5561996264723";
+const EMAIL = "contato@pathotec.com.br";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -371,23 +370,41 @@ function CTA() {
 
           <div className="space-y-4">
             {[
-              { icon: Phone, l: "WhatsApp", v: "(61) 99626-4723" },
-              { icon: Mail, l: "E-mail", v: "contato@pathotec.com.br" },
+              { icon: Phone, l: "WhatsApp", v: "(61) 99626-4723", href: WHATSAPP_URL, external: true },
+              { icon: Mail, l: "E-mail", v: EMAIL, href: `mailto:${EMAIL}`, external: false },
               { icon: MapPin, l: "Sede", v: "Brasília · DF — Brasil" },
-            ].map((c) => (
-              <div
-                key={c.l}
-                className="flex items-center gap-4 rounded-2xl border border-background/15 bg-background/5 p-5 backdrop-blur"
-              >
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-background/10 text-background">
-                  <c.icon className="h-5 w-5" strokeWidth={1.5} />
+            ].map((c) => {
+              const content = (
+                <>
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-background/10 text-background transition group-hover:bg-background group-hover:text-royal-deep">
+                    <c.icon className="h-5 w-5" strokeWidth={1.5} />
+                  </div>
+                  <div className="flex-1">
+                    <div className="text-xs uppercase tracking-wider text-periwinkle">{c.l}</div>
+                    <div className="mt-0.5 text-background">{c.v}</div>
+                  </div>
+                  {c.href && (
+                    <ArrowUpRight className="h-4 w-4 text-periwinkle transition group-hover:text-background group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  )}
+                </>
+              );
+              const className =
+                "group flex items-center gap-4 rounded-2xl border border-background/15 bg-background/5 p-5 backdrop-blur transition hover:bg-background/10 hover:border-background/30";
+              return c.href ? (
+                <a
+                  key={c.l}
+                  href={c.href}
+                  {...(c.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  className={className}
+                >
+                  {content}
+                </a>
+              ) : (
+                <div key={c.l} className={className}>
+                  {content}
                 </div>
-                <div>
-                  <div className="text-xs uppercase tracking-wider text-periwinkle">{c.l}</div>
-                  <div className="mt-0.5 text-background">{c.v}</div>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </motion.div>
       </div>
