@@ -16,9 +16,8 @@ import heroTissue from "@/assets/hero-tissue.jpg";
 
 export const Route = createFileRoute("/")({ component: Index });
 
-const WHATSAPP_URL =
-  "https://wa.me/5561996264723?text=" +
-  encodeURIComponent("Olá! Gostaria de solicitar uma coleta / enviar uma amostra à Pathotec.");
+const WHATSAPP_URL = "https://wa.me/5561996264723";
+const EMAIL = "contato@pathotec.com.br";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
