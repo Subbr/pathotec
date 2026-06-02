@@ -1,4 +1,4 @@
-import logoAsset from "@/assets/pathotec-logo.png.asset.json";
+import logoAsset from "@/assets/pathotec-logo.svg.asset.json";
 
 export function Logo({ compact = false, light = false }: { compact?: boolean; light?: boolean }) {
   const sub = light ? "text-background/75" : "text-slate-blue";
