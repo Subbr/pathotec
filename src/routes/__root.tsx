@@ -86,12 +86,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Pathotec — Anatomia Patológica Veterinária" },
-      { name: "description", content: "Laboratório de Patologia Veterinária 
-Anatomia Patológica Veterinária" },
-      { property: "og:description", content: "Laboratório de Patologia Veterinária 
-Anatomia Patológica Veterinária" },
-      { name: "twitter:description", content: "Laboratório de Patologia Veterinária 
-Anatomia Patológica Veterinária" },
+      { name: "description", content: "Laboratório de Patologia Veterinária — Anatomia Patológica Veterinária" },
+      { property: "og:description", content: "Laboratório de Patologia Veterinária — Anatomia Patológica Veterinária" },
+      { name: "twitter:description", content: "Laboratório de Patologia Veterinária — Anatomia Patológica Veterinária" },
       { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/ec9fbc69-56bb-4cae-a0bf-2a653d125803" },
       { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/ec9fbc69-56bb-4cae-a0bf-2a653d125803" },
     ],
