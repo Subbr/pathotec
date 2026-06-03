@@ -349,8 +349,8 @@ function CTA() {
         >
           <div>
             <div className="text-xs uppercase tracking-[0.2em] text-periwinkle">— Contato</div>
-            <h2 className="mt-4 font-display text-4xl text-background md:text-5xl">
-              Pronto para enviar<br />
+            <h2 className="mt-4 font-display text-3xl text-background sm:text-4xl md:text-5xl">
+              Pronto para enviar{" "}
               <em className="italic">sua amostra?</em>
             </h2>
             <p className="mt-6 max-w-md text-background/75">
