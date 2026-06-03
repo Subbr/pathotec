@@ -338,8 +338,8 @@ function Method() {
 
 function CTA() {
   return (
-    <section id="contato" className="px-6 pb-28 pt-28 md:pt-36">
-      <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl bg-gradient-deep p-10 text-background shadow-lift md:p-16">
+    <section id="contato" className="px-4 pb-20 pt-20 sm:px-6 md:pt-36 md:pb-28">
+      <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl bg-gradient-deep p-6 text-background shadow-lift sm:p-10 md:p-16">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -349,8 +349,8 @@ function CTA() {
         >
           <div>
             <div className="text-xs uppercase tracking-[0.2em] text-periwinkle">— Contato</div>
-            <h2 className="mt-4 font-display text-4xl text-background md:text-5xl">
-              Pronto para enviar<br />
+            <h2 className="mt-4 font-display text-3xl text-background sm:text-4xl md:text-5xl">
+              Pronto para enviar{" "}
               <em className="italic">sua amostra?</em>
             </h2>
             <p className="mt-6 max-w-md text-background/75">
@@ -376,20 +376,20 @@ function CTA() {
             ].map((c) => {
               const content = (
                 <>
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-background/10 text-background transition group-hover:bg-background group-hover:text-royal-deep">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-background/10 text-background transition group-hover:bg-background group-hover:text-royal-deep">
                     <c.icon className="h-5 w-5" strokeWidth={1.5} />
                   </div>
-                  <div className="flex-1">
+                  <div className="min-w-0 flex-1">
                     <div className="text-xs uppercase tracking-wider text-periwinkle">{c.l}</div>
-                    <div className="mt-0.5 text-background">{c.v}</div>
+                    <div className="mt-0.5 truncate text-background">{c.v}</div>
                   </div>
                   {c.href && (
-                    <ArrowUpRight className="h-4 w-4 text-periwinkle transition group-hover:text-background group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    <ArrowUpRight className="h-4 w-4 shrink-0 text-periwinkle transition group-hover:text-background group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   )}
                 </>
               );
               const className =
-                "group flex items-center gap-4 rounded-2xl border border-background/15 bg-background/5 p-5 backdrop-blur transition hover:bg-background/10 hover:border-background/30";
+                "group flex items-center gap-4 rounded-2xl border border-background/15 bg-background/5 p-4 backdrop-blur transition hover:bg-background/10 hover:border-background/30 sm:p-5";
               return c.href ? (
                 <a
                   key={c.l}
