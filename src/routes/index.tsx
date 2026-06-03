@@ -389,7 +389,7 @@ function CTA() {
                 </>
               );
               const className =
-                "group flex items-center gap-4 rounded-2xl border border-background/15 bg-background/5 p-5 backdrop-blur transition hover:bg-background/10 hover:border-background/30";
+                "group flex items-center gap-4 rounded-2xl border border-background/15 bg-background/5 p-4 backdrop-blur transition hover:bg-background/10 hover:border-background/30 sm:p-5";
               return c.href ? (
                 <a
                   key={c.l}
