@@ -338,8 +338,8 @@ function Method() {
 
 function CTA() {
   return (
-    <section id="contato" className="px-6 pb-28 pt-28 md:pt-36">
-      <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl bg-gradient-deep p-10 text-background shadow-lift md:p-16">
+    <section id="contato" className="px-4 pb-20 pt-20 sm:px-6 md:pt-36 md:pb-28">
+      <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl bg-gradient-deep p-6 text-background shadow-lift sm:p-10 md:p-16">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
