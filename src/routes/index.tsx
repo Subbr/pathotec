@@ -376,15 +376,15 @@ function CTA() {
             ].map((c) => {
               const content = (
                 <>
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-background/10 text-background transition group-hover:bg-background group-hover:text-royal-deep">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-background/10 text-background transition group-hover:bg-background group-hover:text-royal-deep">
                     <c.icon className="h-5 w-5" strokeWidth={1.5} />
                   </div>
-                  <div className="flex-1">
+                  <div className="min-w-0 flex-1">
                     <div className="text-xs uppercase tracking-wider text-periwinkle">{c.l}</div>
-                    <div className="mt-0.5 text-background">{c.v}</div>
+                    <div className="mt-0.5 truncate text-background">{c.v}</div>
                   </div>
                   {c.href && (
-                    <ArrowUpRight className="h-4 w-4 text-periwinkle transition group-hover:text-background group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    <ArrowUpRight className="h-4 w-4 shrink-0 text-periwinkle transition group-hover:text-background group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   )}
                 </>
               );
