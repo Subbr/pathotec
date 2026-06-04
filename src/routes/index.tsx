@@ -20,7 +20,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Pathotec — Anatomia Patológica Veterinária" },
-      { name: "description", content: "Laboratório brasileiro especializado em anatomia patológica veterinária." },
+      { name: "description", content: "Laboratório especializado em anatomia patológica veterinária." },
     ],
     links: [
       { rel: "icon", type: "image/x-icon", href: faviconUrl },
@@ -113,7 +113,7 @@ function Hero() {
             variants={fadeUp}
             className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground"
           >
-            A Pathotec é um laboratório brasileiro especializado em anatomia patológica
+            A Pathotec é um laboratório especializado em anatomia patológica
             veterinária. Unimos histopatologia, citologia e imuno-histoquímica em
             laudos claros, rápidos e confiáveis para a clínica do seu paciente.
           </motion.p>
@@ -190,12 +190,12 @@ const services = [
   {
     icon: Microscope,
     title: "Histopatologia",
-    desc: "Análise microscópica de biópsias e peças cirúrgicas com coloração H&E e laudo detalhado.",
+    desc: "Análise microscópica de biópsias, peças cirúrgicas com coloração H&E e especiais para laudo detalhado.",
   },
   {
     icon: FlaskConical,
     title: "Citologia",
-    desc: "Punções aspirativas, lavados e impressões para diagnóstico rápido em consultório.",
+    desc: "Punções aspirativas, imprint, swab e raspados para diagnóstico rápido do paciente.",
   },
   {
     icon: ScanSearch,
