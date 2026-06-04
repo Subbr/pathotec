@@ -255,7 +255,7 @@ function Services() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-80px" }}
-          className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
+          className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
         >
           {services.filter((s) => !s.hidden).map((s, i) => (
             <motion.article
