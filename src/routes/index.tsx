@@ -12,8 +12,12 @@ import {
   Phone,
 } from "lucide-react";
 import { Logo } from "@/components/Logo";
-import heroTissue from "@/assets/hero-tissue.jpg";
+import heroTissueAsset from "@/assets/caso-1753-melanoma.jpg.asset.json";
+import carcinomaAsset from "@/assets/caso-1404-carcinoma.jpg.asset.json";
 import faviconUrl from "@/assets/favicon.ico";
+
+const heroTissue = heroTissueAsset.url;
+const carcinomaBg = carcinomaAsset.url;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -172,8 +176,8 @@ function Hero() {
                   <ScanSearch className="h-4 w-4 text-royal" strokeWidth={1.6} />
                 </div>
                 <div className="flex-1">
-                  <div className="text-xs uppercase tracking-wider text-slate-blue">Caso #2840</div>
-                  <div className="text-sm font-medium text-royal-deep">Linfoma multicêntrico — canino</div>
+                  <div className="text-xs uppercase tracking-wider text-slate-blue">Caso #1753</div>
+                  <div className="text-sm font-medium text-royal-deep">Melanoma — canino</div>
                 </div>
                 <div className="rounded-full bg-secondary px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-royal">Pronto</div>
               </div>
@@ -200,6 +204,7 @@ const services = [
     icon: ScanSearch,
     title: "Imuno-histoquímica",
     desc: "Marcadores específicos para classificação de neoplasias e diagnósticos diferenciais.",
+    hidden: true,
   },
   {
     icon: Stethoscope,
@@ -211,7 +216,7 @@ const services = [
 function Services() {
   return (
     <section id="servicos" className="relative overflow-hidden py-28 md:py-36">
-      {/* ambient orbs */}
+      {/* ambient orbs + tissue backdrop */}
       <motion.div
         aria-hidden="true"
         initial={{ opacity: 0 }}
@@ -220,6 +225,11 @@ function Services() {
         transition={{ duration: 1.4 }}
         className="pointer-events-none absolute inset-0 -z-10"
       >
+        <img
+          src={carcinomaBg}
+          alt=""
+          className="absolute -right-40 top-1/2 h-[42rem] w-[42rem] -translate-y-1/2 rounded-full object-cover opacity-[0.08] [mask-image:radial-gradient(circle,black,transparent_70%)]"
+        />
         <div className="absolute -left-32 top-20 h-96 w-96 rounded-full bg-periwinkle/30 blur-3xl" />
         <div className="absolute -right-32 bottom-10 h-[28rem] w-[28rem] rounded-full bg-royal/10 blur-3xl" />
       </motion.div>
@@ -250,9 +260,9 @@ function Services() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-80px" }}
-          className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
+          className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
         >
-          {services.map((s, i) => (
+          {services.filter((s) => !s.hidden).map((s, i) => (
             <motion.article
               key={s.title}
               variants={fadeUp}
