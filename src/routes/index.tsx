@@ -12,8 +12,8 @@ import {
   Phone,
 } from "lucide-react";
 import { Logo } from "@/components/Logo";
-import heroTissueAsset from "@/assets/caso-1753-melanoma.jpg.asset.json";
-import carcinomaAsset from "@/assets/caso-1404-carcinoma.jpg.asset.json";
+import heroTissueAsset from "@/assets/caso-1753-melanoma.jpg";
+import carcinomaAsset from "@/assets/caso-1404-carcinoma.jpg";
 import faviconUrl from "@/assets/favicon.ico";
 
 const heroTissue = heroTissueAsset.url;
