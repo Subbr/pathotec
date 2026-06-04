@@ -242,13 +242,13 @@ function Services() {
           <div>
             <div className="text-xs uppercase tracking-[0.2em] text-slate-blue">— Serviços</div>
             <h2 className="mt-4 font-display text-4xl text-royal-deep md:text-5xl">
-              Um portfólio diagnóstico<br />
+              Um portfólio de diagnóstico<br />
               <em className="italic text-royal">completo.</em>
             </h2>
           </div>
           <p className="text-muted-foreground md:text-lg">
-            Da coleta ao laudo final, integramos métodos clássicos e tecnologia
-            molecular para apoiar decisões clínicas com confiança.
+            Da coleta ao laudo final, integramos métodos clássicos e tecnológicos
+            para apoiar decisões clínicas com confiança.
           </p>
         </motion.div>
 
