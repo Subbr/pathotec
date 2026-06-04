@@ -13,8 +13,20 @@ import {
 } from "lucide-react";
 import { Logo } from "@/components/Logo";
 import heroTissue from "@/assets/hero-tissue.jpg";
+import faviconUrl from "@/assets/favicon.ico";
 
-export const Route = createFileRoute("/")({ component: Index });
+export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Pathotec — Anatomia Patológica Veterinária" },
+      { name: "description", content: "Laboratório brasileiro especializado em anatomia patológica veterinária." },
+    ],
+    links: [
+      { rel: "icon", type: "image/x-icon", href: faviconUrl },
+    ],
+  }),
+  component: Index,
+});
 
 const WHATSAPP_URL = "https://wa.me/5561996264723";
 const EMAIL = "contato@pathotec.com.br";
