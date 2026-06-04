@@ -16,9 +16,6 @@ import heroTissueAsset from "@/assets/caso-1753-melanoma.jpg";
 import carcinomaAsset from "@/assets/caso-1404-carcinoma.jpg";
 import faviconUrl from "@/assets/favicon.ico";
 
-const heroTissue = heroTissueAsset.url;
-const carcinomaBg = carcinomaAsset.url;
-
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
