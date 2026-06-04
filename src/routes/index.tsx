@@ -257,7 +257,7 @@ function Services() {
           viewport={{ once: true, margin: "-80px" }}
           className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
         >
-          {services.map((s, i) => (
+          {services.filter((s) => !s.hidden).map((s, i) => (
             <motion.article
               key={s.title}
               variants={fadeUp}
