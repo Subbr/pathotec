@@ -216,7 +216,7 @@ const services = [
 function Services() {
   return (
     <section id="servicos" className="relative overflow-hidden py-28 md:py-36">
-      {/* ambient orbs */}
+      {/* ambient orbs + tissue backdrop */}
       <motion.div
         aria-hidden="true"
         initial={{ opacity: 0 }}
@@ -225,6 +225,11 @@ function Services() {
         transition={{ duration: 1.4 }}
         className="pointer-events-none absolute inset-0 -z-10"
       >
+        <img
+          src={carcinomaBg}
+          alt=""
+          className="absolute -right-40 top-1/2 h-[42rem] w-[42rem] -translate-y-1/2 rounded-full object-cover opacity-[0.08] [mask-image:radial-gradient(circle,black,transparent_70%)]"
+        />
         <div className="absolute -left-32 top-20 h-96 w-96 rounded-full bg-periwinkle/30 blur-3xl" />
         <div className="absolute -right-32 bottom-10 h-[28rem] w-[28rem] rounded-full bg-royal/10 blur-3xl" />
       </motion.div>
