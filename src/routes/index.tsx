@@ -204,6 +204,7 @@ const services = [
     icon: ScanSearch,
     title: "Imuno-histoquímica",
     desc: "Marcadores específicos para classificação de neoplasias e diagnósticos diferenciais.",
+    hidden: true,
   },
   {
     icon: Stethoscope,
