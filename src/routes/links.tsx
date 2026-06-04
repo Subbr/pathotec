@@ -35,7 +35,7 @@ const LINKS: LinkItem[] = [
 
 function Links() {
   return (
-    <main className="relative min-h-screen bg-background overflow-hidden">
+    <main className="relative min-h-screen bg-aurora overflow-hidden">
       <div
         aria-hidden
         className="pointer-events-none absolute -right-32 -top-32 h-[520px] w-[520px] rounded-full opacity-20 blur-3xl bg-primary/20"
