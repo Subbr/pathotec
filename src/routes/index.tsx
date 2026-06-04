@@ -12,8 +12,12 @@ import {
   Phone,
 } from "lucide-react";
 import { Logo } from "@/components/Logo";
-import heroTissue from "@/assets/hero-tissue.jpg";
+import heroTissueAsset from "@/assets/caso-1753-melanoma.jpg.asset.json";
+import carcinomaAsset from "@/assets/caso-1404-carcinoma.jpg.asset.json";
 import faviconUrl from "@/assets/favicon.ico";
+
+const heroTissue = heroTissueAsset.url;
+const carcinomaBg = carcinomaAsset.url;
 
 export const Route = createFileRoute("/")({
   head: () => ({
