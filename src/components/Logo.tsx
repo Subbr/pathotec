@@ -1,11 +1,11 @@
-import logoAsset from "@/assets/pathotec-logo-v2.png.asset.json";
+import logoSrc from "@/assets/pathotec-logo-v2.png";
 
 export function Logo({ compact = false, light = false }: { compact?: boolean; light?: boolean }) {
   const sub = light ? "text-background/75" : "text-slate-blue";
   return (
     <div className="flex items-center gap-3">
       <img
-        src={logoAsset.url}
+        src={logoSrc}
         alt="Pathotec"
         className={`h-8 w-auto md:h-9 ${light ? "brightness-0 invert" : ""}`}
       />
