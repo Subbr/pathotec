@@ -176,8 +176,8 @@ function Hero() {
                   <ScanSearch className="h-4 w-4 text-royal" strokeWidth={1.6} />
                 </div>
                 <div className="flex-1">
-                  <div className="text-xs uppercase tracking-wider text-slate-blue">Caso #2840</div>
-                  <div className="text-sm font-medium text-royal-deep">Linfoma multicêntrico — canino</div>
+                  <div className="text-xs uppercase tracking-wider text-slate-blue">Caso #1753</div>
+                  <div className="text-sm font-medium text-royal-deep">Melanoma — canino</div>
                 </div>
                 <div className="rounded-full bg-secondary px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-royal">Pronto</div>
               </div>
