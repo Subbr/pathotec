@@ -47,7 +47,7 @@ function Links() {
 
       <div className="relative mx-auto flex min-h-screen w-full max-w-xl flex-col px-5 pb-16 pt-10 sm:px-8 sm:pt-16">
         <header className="flex flex-col items-center text-center">
-          <div className="flex items-center justify-center rounded-full border border-border bg-card/80 px-10 py-5 shadow-sm backdrop-blur-sm">
+          <div className="flex items-center justify-center rounded-2xl border border-border bg-card/80 px-8 py-4 shadow-sm backdrop-blur-sm">
             <img src={logoSrc} alt="Pathotec" width={220} height={64} className="h-12 w-auto object-contain sm:h-14" />
           </div>
           <p className="mt-6 inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
