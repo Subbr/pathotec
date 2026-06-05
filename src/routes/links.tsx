@@ -79,7 +79,7 @@ function Links() {
 
         <nav aria-label="Links" className="mt-10 flex flex-col gap-3">
           {LINKS.map((link, i) => (
-            
+      <a
               key={link.href}
               href={link.href}
               target="_blank"
