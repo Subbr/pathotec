@@ -114,8 +114,9 @@ function Hero() {
             className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground"
           >
             A Pathotec é um laboratório especializado em anatomia patológica
-            veterinária. Unimos histopatologia, citologia e imuno-histoquímica em
-            laudos claros, rápidos e confiáveis para a clínica do seu paciente.
+            veterinária. Unimos histopatologia e citologia em laudos claros,
+            rápidos e confiáveis para a clínica do seu paciente.
+            
           </motion.p>
 
           <motion.div variants={fadeUp} className="mt-10 flex flex-wrap items-center gap-4">
